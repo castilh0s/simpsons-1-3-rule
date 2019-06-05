@@ -1,20 +1,22 @@
-function func (x) {
-  return Math.log(x)
+function func (value) {
+  return Math.log(value)
 }
 
-function simpson (lower, upper, n) {
-  let h = (upper - lower) / n
-  let x = []
+function calculateFx (lowerDomain, integrationSteps, h) {
   let fx = []
 
-  for (let index = 0; index <= n; index++) {
-    x[index] = lower + index * h
-    fx[index] = func(x[index])
+  for (let index = 0; index <= integrationSteps; index++) {
+    let x = lowerDomain + index * h
+    fx[index] = func(x)
   }
 
+  return fx
+}
+
+function calculateResult (integrationSteps, h, fx) {
   let res = 0
-  for (let index = 0; index <= n; index++) {
-    if (index === 0 || index === n) {
+  for (let index = 0; index <= integrationSteps; index++) {
+    if (index === 0 || index === integrationSteps) {
       res += fx[index]
     } else if (index % 2 !== 0) {
       res += 4 * fx[index]
@@ -26,4 +28,20 @@ function simpson (lower, upper, n) {
   return res * (h / 3)
 }
 
-console.log(simpson(4, 5.2, 6))
+function SimpsonsRule (lowerDomain, upperDomain, integrationSteps) {
+  this.lowerDomain = lowerDomain
+  this.upperDomain = upperDomain
+  this.integrationSteps = integrationSteps
+}
+
+SimpsonsRule.prototype = {
+  calculate () {
+    const h = (this.upperDomain - this.lowerDomain) / this.integrationSteps
+    const fx = calculateFx(this.lowerDomain, this.integrationSteps, h)
+    const res = calculateResult(this.integrationSteps, h, fx)
+
+    return res
+  }
+}
+
+module.exports = { SimpsonsRule }
