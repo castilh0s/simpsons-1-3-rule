@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/second-degree-equation/' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/simpsons-rule/' : '/'
 }
