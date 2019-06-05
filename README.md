@@ -1,10 +1,10 @@
-# Equação de Segundo Grau
+# Regra do 1/3 de Simpson
 
 Projeto realizado para a matéria de matemática computacional.
 
-Para visualizar a calculadora rodando no GH Pages, [clique aqui](https://castilh0s.github.io/second-degree-equation/).
+Para visualizar o projeto no GH Pages, [clique aqui](https://castilh0s.github.io/simpsons-rule/).
 
-Para visualizar o construtor e os métodos que realizam os cálculos, [clique aqui](https://github.com/castilh0s/second-degree-equation/blob/master/src/assets/second-degree-equation.js).
+Para visualizar o construtor e os métodos que realizam os cálculos, [clique aqui](src/assets/simpsons-rule.js).
 
 ## Configurar o projeto
 
